@@ -58,6 +58,10 @@ public class Transaction {
 		print = print+"Amount: "+amount+";";
 		print = print+"Available Balance: "+ availableBalance;
 		return print;
+		
+		
+		
+		
 	}
  
 }
