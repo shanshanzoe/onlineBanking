@@ -4,18 +4,18 @@ public class Transaction {
 	private String date;
 	private String description;
 	private double amount;
-	private double availableBalance;
+	private double balance;
 
 	public Transaction() {
 
 	}
 
-	public Transaction(String date, String description, double amount,
-			double availableBalance) {
+	public Transaction(String date, String description, double amount, double balance) {
 		this.date = date;
 		this.description = description;
 		this.amount = amount;
-		this.availableBalance = availableBalance;
+		this.balance = balance;
+
 	}
 	
 	public void setDate(String date){
@@ -42,12 +42,12 @@ public class Transaction {
 		return amount;
 	}
 	
-	public void setAvailBalance(double availableBalance){
-		 this.availableBalance= availableBalance;
+	public void setBalance(double balance){
+		 this.balance= balance;
 	}
 	
-	public double getAvailBalance(){
-		return availableBalance;
+	public double getBalance(){
+		return balance;
 	}
 	
 	@Override
@@ -56,12 +56,8 @@ public class Transaction {
 		print = print+"Date: "+date+";";
 		print = print+"Description: "+description+ ";";
 		print = print+"Amount: "+amount+";";
-		print = print+"Available Balance: "+ availableBalance;
+		print = print+"Available Balance: "+ balance;
 		return print;
-		
-		
-		
-		
 	}
  
 }

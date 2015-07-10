@@ -1,5 +1,5 @@
 package model;
 
-public class CheckingAcc {
+public class CheckingAcc extends Account {	
 
 }
