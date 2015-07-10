@@ -1,6 +1,6 @@
 package model;
 
-public class CreditCard {
+public class CreditCard implements IAccount{
 	private double totalCredit;
 	private double currentBalance; // the money has been used
 	private double availCredit; // available Credit
@@ -21,16 +21,26 @@ public class CreditCard {
 	// String descriptionValue= description;
 		currentBalance += paidMoney;
 		availCredit = totalCredit - currentBalance;
-		insertTransaction(date, paidMoney, description);
+		insertTransaction(date, description, paidMoney);
 
 	}
 
-	private void insertTransaction(String date, double paidMoney,
-			String description) {
-		Transaction transaction = new Transaction(date, description, paidMoney,
-				availCredit);
+	public void insertTransaction(String date, String description, double paidMoney) {
+		Transaction transaction = new Transaction(date, description, paidMoney, availCredit);
 		transactions[transactionIndex] = transaction;
 		transactionIndex++;
+	}
+	
+	public double getBalance(){
+		return this.currentBalance;
+	}
+	
+	public void deposit(double amount) {
+		this.currentBalance -= amount;
+	}
+	
+	public void withdraw(double amount) {
+		System.out.println("You cannot withdraw from a credit account");
 	}
 
 }

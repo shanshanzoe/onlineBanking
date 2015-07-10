@@ -6,9 +6,6 @@ public class Transaction {
 	private double amount;
 	private double balance;
 
-	public Transaction() {
-
-	}
 
 	public Transaction(String date, String description, double amount, double balance) {
 		this.date = date;
@@ -46,9 +43,6 @@ public class Transaction {
 		 this.balance= balance;
 	}
 	
-	public double getBalance(){
-		return balance;
-	}
 	
 	@Override
 	public String toString(){
