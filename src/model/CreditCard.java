@@ -33,18 +33,21 @@ public class CreditCard implements IAccount{
 		Transaction transaction = new Transaction(date, description, paidMoney, availCredit);
 		transactions[transactionIndex] = transaction;
 		transactionIndex++;
-		System.out.println("transaction");
 	}
 	
 	public double getBalance(){
 		return this.currentBalance;
 	}
 	
-	public void deposit(double amount) {
+	public void deposit(String date, String description, double amount) {
 		this.currentBalance -= amount;
+		availCredit = totalCredit - currentBalance;
+		Transaction transaction = new Transaction(date, description, amount, availCredit);
+		transactions[transactionIndex] = transaction;
+		transactionIndex++;
 	}
 	
-	public void withdraw(double amount) {
+	public void withdraw(String date, String description, double amount) {
 		System.out.println("You cannot withdraw from a credit account");
 	}
 	
@@ -52,6 +55,10 @@ public class CreditCard implements IAccount{
 		for (int i=0; i<transactionIndex; i++) {
 			System.out.println(transactions[i]);
 		}
+	}
+	
+	public void transfer(IAccount account, String date, double amount) {
+		
 	}
 
 }
