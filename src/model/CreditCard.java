@@ -19,16 +19,21 @@ public class CreditCard implements IAccount{
 	// double paidMoneyValue=paidMoney;
 	// String dateValue=date;
 	// String descriptionValue= description;
-		currentBalance += paidMoney;
-		availCredit = totalCredit - currentBalance;
-		insertTransaction(date, description, paidMoney);
-
+		if ((this.getBalance() + paidMoney) < availCredit) {
+			currentBalance += paidMoney;
+			availCredit = totalCredit - currentBalance;
+			insertTransaction(date, description, paidMoney);
+		} else {
+			System.out.println("Transaction Denied");
+		}
+		
 	}
 
 	public void insertTransaction(String date, String description, double paidMoney) {
 		Transaction transaction = new Transaction(date, description, paidMoney, availCredit);
 		transactions[transactionIndex] = transaction;
 		transactionIndex++;
+		System.out.println("transaction");
 	}
 	
 	public double getBalance(){
@@ -41,6 +46,12 @@ public class CreditCard implements IAccount{
 	
 	public void withdraw(double amount) {
 		System.out.println("You cannot withdraw from a credit account");
+	}
+	
+	public void printAllTransactions() {
+		for (int i=0; i<transactionIndex; i++) {
+			System.out.println(transactions[i]);
+		}
 	}
 
 }

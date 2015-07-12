@@ -4,8 +4,8 @@ public class SavingAcc extends AbsAccount {
 	Transaction[] transactions;
 	double balance;
 	
-	public SavingAcc(Transaction[] transactions, double balance) {
-		super(transactions, balance);
+	public SavingAcc(double balance) {
+		super(balance);
 	}
 	
 	private double interestRate;
