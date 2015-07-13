@@ -34,6 +34,15 @@ public abstract class AbsAccount implements IAccount {
 		transactionIndex++;
 	}
 	
+	public void insertTransaction(String date, String description, double amount) {
+		balance = balance + amount;
+		Transaction transaction = new Transaction(date, description, amount,
+				balance);
+		transactions[transactionIndex] = transaction;
+		transactionIndex++;
+		System.out.println(transaction);
+	}
+	
 	public void printAllTransactions() {
 		for (int i=0; i<transactionIndex; i++) {
 			System.out.println(transactions[i]);

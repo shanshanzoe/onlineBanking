@@ -7,4 +7,5 @@ public interface IAccount {
 	public void deposit(String date, String description, double amount);
 	public void printAllTransactions();
 	public void transfer(IAccount account, String date, double amount);
+	public void insertTransaction(String date, String description, double amount);
 }

@@ -1,4 +1,4 @@
-/*package model;
+package model;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -23,9 +23,10 @@ public class File {
 	            String balanceText = parts[3].toString();
 	            Double balance = Double.parseDouble(balanceText);
 	            
-	            Transaction transaction = new Transaction(date, description, amount, balance);
-	            CheckingAcc card1 = new CheckingAcc(balance);
-	            card1.insertTransaction(date, description, amount);
+	            
+	     
+
+
 	        }  
 		} finally {
 			if (in != null) {
@@ -34,6 +35,11 @@ public class File {
 		}
 		
 	}
+
+	private static IAccount CreditCard(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
-*/
+
 

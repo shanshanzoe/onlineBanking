@@ -11,6 +11,7 @@ public class CheckingAcc extends AbsAccount {
 	public void swipeCard(String date, String description, double amount) { 
 		// String descriptionValue= description;
 		this.withdraw(date, description, amount);
+		
 	}
 
 }
