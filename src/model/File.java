@@ -27,6 +27,7 @@ public class File {
 					String username = in.readLine();
 					//System.out.println(username);
 					user.setUsername(username);
+//					System.out.println(username);
 					break;
 					
 				case "#password":
@@ -43,12 +44,12 @@ public class File {
 					// read #transaction
 					in.readLine();
 					while (!(line = in.readLine()).startsWith("#")) {
-						String parts[] = line.split(":");
-						String date = parts[0].toString();
-						String description = parts[1].toString();
-						String amountText = parts[2].toString();
+						String []parts = line.split(":");
+						String date = parts[0];
+						String description = parts[1];
+						String amountText = parts[2];
 						double amount = Double.parseDouble(amountText);
-						String balanceText = parts[3].toString();
+						String balanceText = parts[3];
 						double balance = Double.parseDouble(balanceText);
 						Transaction transaction = new Transaction(date,
 								description, amount, balance);
@@ -77,7 +78,6 @@ public class File {
 						//System.out.println(transaction);
 						savingAcc.insertTransaction(transaction);
 					}
-
 					break;
 				case "#credit":
 					String creditBalance = in.readLine();
@@ -104,10 +104,11 @@ public class File {
 					break;
 				}
 				
-				//line = in.readLine();
 			}
 
-		} finally {
+		} catch (Exception e){
+			System.out.println(e);
+		}finally {
 			if (in != null) {
 				in.close();
 			}
