@@ -18,15 +18,23 @@ public class File {
 
 			String line = "";
 			while (line != null) {	
+				line = in.readLine();
+				if(line==null)
+					break;
 				switch (line) {
 				case "#username":
+					
 					String username = in.readLine();
+					//System.out.println(username);
 					user.setUsername(username);
 					break;
+					
 				case "#password":
 					String password = in.readLine();
+					//System.out.println(password);
 					user.setPassword(password);
 					break;
+					
 				case "#checking":
 					String checkingBalance = in.readLine();
 					double cBalance = Double.parseDouble(checkingBalance);
@@ -35,7 +43,6 @@ public class File {
 					// read #transaction
 					in.readLine();
 					while (!(line = in.readLine()).startsWith("#")) {
-						System.out.println(line);
 						String parts[] = line.split(":");
 						String date = parts[0].toString();
 						String description = parts[1].toString();
@@ -45,21 +52,19 @@ public class File {
 						double balance = Double.parseDouble(balanceText);
 						Transaction transaction = new Transaction(date,
 								description, amount, balance);
+						//System.out.println(transaction);
 						checkingAcc.insertTransaction(transaction);
 					}
 
 					break;
-				case "#ccc":
+				case "#saving":
 					String savingBalance = in.readLine();
 					double sBalance = Double.parseDouble(savingBalance);
-					System.out.println(sBalance);
 					SavingAcc savingAcc = new SavingAcc(sBalance);
 					user.setSavingAcc(savingAcc);
 					// read #transaction
-					System.out.println(in.readLine());
-					
+					in.readLine();
 					while (!(line = in.readLine()).startsWith("#")) {
-						System.out.println(line);
 						String parts[] = line.split(":");
 						String date = parts[0].toString();
 						String description = parts[1].toString();
@@ -69,7 +74,7 @@ public class File {
 						double balance = Double.parseDouble(balanceText);
 						Transaction transaction = new Transaction(date,
 								description, amount, balance);
-						System.out.println(transaction);
+						//System.out.println(transaction);
 						savingAcc.insertTransaction(transaction);
 					}
 
@@ -82,7 +87,6 @@ public class File {
 					// read #transaction
 					in.readLine();
 					while (!(line = in.readLine()).startsWith("#")) {
-						System.out.println(line);
 						String parts[] = line.split(":");
 						String date = parts[0].toString();
 						String description = parts[1].toString();
@@ -92,15 +96,15 @@ public class File {
 						double balance = Double.parseDouble(balanceText);
 						Transaction transaction = new Transaction(date,
 								description, amount, balance);
+						//System.out.println(transaction);
 						creditCard.insertTransaction(transaction);
 					}
-
 					break;
 				default:
 					break;
 				}
 				
-				line = in.readLine();
+				//line = in.readLine();
 			}
 
 		} finally {
@@ -122,8 +126,11 @@ public class File {
 			String password = scanIn.nextLine();
 			if (selectedUser.verifyPassword(password)) {
 				System.out.println("success");
+				System.out.println("checking: ");
 				selectedUser.getCheckingAcc().printAllTransactions();
+				System.out.println("saving: ");
 				selectedUser.getSavingAcc().printAllTransactions();
+				System.out.println("credit: ");
 				selectedUser.getCreditCard().printAllTransactions();
 			} else {
 				System.err.println("password error!");
