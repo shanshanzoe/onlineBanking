@@ -35,6 +35,11 @@ public class CreditCard implements IAccount{
 		transactionIndex++;
 	}
 	
+	public void insertTransaction(Transaction transaction){
+		transactions[transactionIndex] = transaction;
+		transactionIndex++;
+	}
+	
 	public double getBalance(){
 		return this.currentBalance;
 	}

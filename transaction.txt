@@ -1,2 +1,20 @@
-07/07/2015:First time deposit:1000:1000
-07/07/2015:Food:50, 1000
+#username
+shanshan
+#password
+shanshan
+#checking
+1000
+#transaction
+07/07/2015:First time-checking:1000:1000
+07/08/2015:Second time-checking:400:600
+#ccc
+2000
+#transaction
+07/07/2015:First time-saving:1000:1000
+07/08/2015:Second time-saving:500:500
+#credit
+800
+#transaction
+07/07/2015:First time-credit:1000:1000
+07/08/2015:Second time-credit:100:900
+#
