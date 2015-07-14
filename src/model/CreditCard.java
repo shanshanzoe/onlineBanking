@@ -1,18 +1,22 @@
 package model;
 
-public class CreditCard implements IAccount{
+import java.io.Serializable;
+
+public class CreditCard implements IAccount, Serializable{
 	private double totalCredit;
 	private double currentBalance; // the money has been used
 	private double availCredit; // available Credit
 	private Transaction[] transactions;
 	private int transactionIndex;
+	private String accName;
 
-	public CreditCard(double totalCredit) {
+	public CreditCard(String accName, double totalCredit) {
 		this.totalCredit = totalCredit;
 		this.availCredit = totalCredit;
 		this.currentBalance = totalCredit - availCredit; // 0
 		transactions = new Transaction[100];
 		transactionIndex = 0;
+		this.accName = accName;
 	}
 
 	public void swipeCard(String date, String description, double paidMoney) { // update
@@ -65,5 +69,8 @@ public class CreditCard implements IAccount{
 	public void transfer(IAccount account, String date, double amount) {
 		
 	}
-
+	
+	public String getAccName() {
+		return this.accName;
+	}
 }

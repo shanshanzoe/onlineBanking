@@ -1,6 +1,8 @@
 package model;
 
-public class Transaction {
+import java.io.Serializable;
+
+public class Transaction implements Serializable{
 	private String date;
 	private String description;
 	private double amount;
@@ -47,9 +49,9 @@ public class Transaction {
 	@Override
 	public String toString(){
 		String print="";
-		print = print+"Date: "+date+";";
-		print = print+"Description: "+description+ ";";
-		print = print+"Amount: "+amount+";";
+		print = print+"Date: "+date+"; ";
+		print = print+"Description: "+description+ "; ";
+		print = print+"Amount: "+amount+"; ";
 		print = print+"Available Balance: "+ balance;
 		return print;
 	}

@@ -1,14 +1,18 @@
 package model;
 
-public abstract class AbsAccount implements IAccount {
+import java.io.Serializable;
+
+public abstract class AbsAccount implements IAccount, Serializable {
 	private Transaction[] transactions;
 	private int transactionIndex;
 	private double balance;
+	private String accName;
 
-	public AbsAccount (double balance) {
+	public AbsAccount (String accName, double balance) {
 		transactions = new Transaction[100];
 		this.balance = balance;
 		this.transactionIndex = 0;
+		this.accName = accName;
 	}
 	
 	public void swipeCard(String date, String description, double paidMoney) {}
@@ -58,5 +62,9 @@ public abstract class AbsAccount implements IAccount {
 		this.withdraw(date, "Transfer", amount);
 		account.deposit(date, "Transfer", amount);
 			
+	}
+	
+	public String getAccName() {
+		return this.accName;
 	}
 }

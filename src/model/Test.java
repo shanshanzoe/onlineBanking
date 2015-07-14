@@ -1,4 +1,4 @@
-package model;
+/*package model;
 
 public class Test {
 	public static void main(String arg[]) {
@@ -24,4 +24,4 @@ public class Test {
 		
 	}
 
-}
+}*/

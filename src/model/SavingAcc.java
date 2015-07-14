@@ -2,8 +2,8 @@ package model;
 
 public class SavingAcc extends AbsAccount {
 
-	public SavingAcc(double balance) {
-		super(balance);
+	public SavingAcc(String accName, double balance) {
+		super(accName, balance);
 	}
 
 	private double interestRate;
